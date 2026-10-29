@@ -1,0 +1,129 @@
+/* Artist-wide composition. Brand direction takes precedence over release campaign styles. */
+.hero{max-width:none;min-height:760px;height:100svh;max-height:1120px;padding:128px 32px 48px;background:#000}
+.hero-art{inset:0;width:100%;height:100%;left:0;top:0;transform:none;mask-image:none;-webkit-mask-image:none;overflow:hidden;z-index:-1;will-change:transform}
+.world-image{width:100%;height:100%;object-fit:cover;object-position:57% center;filter:brightness(.8);animation:world-drift 24s var(--curve) infinite alternate;transform-origin:60% 65%}
+.hero-art canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.hero-art:after{content:"";position:absolute;inset:0;box-shadow:inset 0 120px 96px -96px #000,inset 0 -140px 112px -96px #000;pointer-events:none}
+.hero-meta{position:relative;z-index:3;max-width:1440px;margin:0 auto;color:#a6a29b}
+.artist-name{font-size:clamp(48px,10.2vw,160px);letter-spacing:-.075em;margin:24px auto 0;max-width:1480px;position:relative;z-index:3}
+.hero-bottom{bottom:112px;max-width:1440px;margin:auto;align-items:flex-end;gap:48px}
+.hero-intro{max-width:680px}
+.hero-intro>.eyebrow{color:#b2aea7;font-size:9px;letter-spacing:.12em}
+.hero-intro>p{font-size:48px;line-height:1.08;letter-spacing:-.06em;margin-top:16px;font-weight:500}
+.hero-intro .button{margin-top:24px;min-width:240px}
+.hero-side-note{display:flex;align-items:center;gap:16px;padding-bottom:16px}
+.hero-side-note p{font-size:9px;line-height:20px;letter-spacing:.1em;color:#b1a9a1}
+.hero-symbol{font-size:72px;line-height:1;color:var(--red);margin-left:24px}
+.hero-coordinate{position:absolute;right:32px;top:48%;font-size:9px;line-height:20px;letter-spacing:.1em;color:#b1a9a1;z-index:2}
+.hero .scroll-cue{max-width:1440px;margin:auto}
+.artist-about{border-top:0;padding-top:112px;padding-bottom:96px}
+.artist-about .word-reveal{font-size:clamp(36px,7.5vw,108px);line-height:1.1;max-width:1250px}
+.artist-bio{display:grid;grid-template-columns:1fr 1.2fr;gap:64px;margin-top:64px;position:relative}
+.artist-bio>p{font-size:20px;line-height:28px;letter-spacing:-.03em;max-width:480px}
+.artist-bio>div{max-width:560px;color:var(--muted);font-size:14px;line-height:24px}
+.artist-bio>div p+p{margin-top:16px}
+.text-link{display:inline-flex;align-items:center;gap:24px;font-size:12px;line-height:20px;margin-top:24px;color:var(--white);padding-bottom:8px;border-bottom:1px solid #595552}
+.artist-bio .manifesto-sign{display:none}
+.release{padding-top:96px;padding-bottom:96px}
+.release-grid{grid-template-columns:.8fr 1.2fr;gap:80px}
+.cover-wrap{max-width:480px;transform-origin:center}
+.release-copy h2{font-size:96px;margin-bottom:24px;letter-spacing:-.08em}
+.release-description{font-size:16px;line-height:24px;color:#b8b4ae}
+.platform-links{display:flex;flex-wrap:wrap;gap:16px;margin-top:16px;font-size:8px;line-height:16px;color:var(--muted)}
+.audio-player{margin-top:32px}
+.film{border-top:1px solid var(--line)}
+.film-poster{display:block;width:100%;aspect-ratio:2.4/1;position:relative;overflow:hidden;border:1px solid var(--line);border-radius:0;padding:0;background:#000;color:var(--white);text-align:left}
+.film-poster>img{width:100%;height:100%;object-fit:cover;filter:brightness(.65) saturate(.55);transition:transform 1s var(--curve),opacity .5s var(--curve)}
+.film-poster:hover>img{transform:scale(1.035);opacity:.7}
+.film-poster-top{position:absolute;top:24px;left:24px;right:24px;display:flex;justify-content:space-between;font-size:8px;line-height:16px;letter-spacing:.1em}
+.film-poster-play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:80px;height:80px;border:1px solid #b6ada3;border-radius:50%;display:grid;place-items:center;transition:background .3s var(--curve),transform .5s var(--curve)}
+.film-poster-play svg{width:24px;height:24px;fill:var(--white)}
+.film-poster:hover .film-poster-play{background:var(--red);transform:translate(-50%,-50%) scale(1.08);border-color:var(--red)}
+.film-poster-bottom{position:absolute;bottom:24px;left:24px;right:24px;display:flex;justify-content:space-between;gap:24px;align-items:flex-end}
+.film-poster-bottom>span:first-child{font-size:48px;line-height:1;letter-spacing:-.06em;font-weight:500}
+.film-poster-bottom small{display:block;font-size:8px;line-height:16px;letter-spacing:.06em;font-weight:400;margin-top:12px}
+.film-poster-bottom>span:last-child{font-size:12px;line-height:20px}
+.film-heading>p{max-width:320px}
+.contact-bottom{display:flex;justify-content:space-between;align-items:flex-start;gap:32px;margin-top:32px}
+.contact-bottom p{font-size:12px;line-height:24px;color:var(--muted)}
+.contact-bottom .text-link{margin-top:0}
+#film-dialog{padding:24px;border:1px solid var(--line);background:#000;color:var(--white);width:min(960px,calc(100% - 32px));max-height:calc(100svh - 32px);overflow:auto}
+#film-dialog::backdrop{background:#000e;backdrop-filter:blur(16px)}
+.dialog-bar{display:flex;align-items:center;justify-content:space-between;gap:24px;margin-bottom:16px}
+.dialog-bar h2{font-size:12px;line-height:20px;font-weight:400}
+.dialog-bar button{display:flex;align-items:center;gap:16px;border:1px solid #595552;padding:8px 12px;border-radius:4px;background:none;font-size:10px}
+.dialog-bar button:hover{color:var(--red)}
+.dialog-bar button span{font-size:24px;line-height:24px}
+#film-dialog video{width:auto;max-width:100%;height:min(72svh,760px);margin:auto;background:#000;object-fit:contain}
+#video-error{font-size:12px;line-height:20px;color:var(--red);margin-top:12px}
+body.film-open{overflow:hidden}
+.menu-open .mobile-menu a:nth-child(4){transition-delay:180ms}
+@keyframes world-drift{from{transform:scale(1.025)}to{transform:scale(1.09) translate(-.5%,.5%)}}
+@media(min-width:1600px){.hero-art{width:100%;height:100%;top:0}.hero-bottom{bottom:112px}.artist-name{font-size:160px}}
+@media(max-width:1000px){.hero{min-height:760px}.hero-art{width:100%;height:100%;top:0}.hero-intro>p{font-size:36px;line-height:40px}.hero-coordinate{right:24px}.hero-symbol{font-size:48px;margin-left:8px}.hero-bottom{gap:24px}.release-grid{gap:40px}.release-copy h2{font-size:72px}.artist-bio{gap:40px}.artist-bio>p{font-size:18px;line-height:28px}.artist-bio>div{font-size:12px;line-height:20px}}
+@media(max-width:700px){
+  .hero{min-height:760px;height:100svh;max-height:1000px;padding:112px 16px 32px}
+  .hero-art{inset:0;width:100%;height:100%;transform:none;mask-image:none;-webkit-mask-image:none}
+  .world-image{object-position:58% center;filter:brightness(.6)}
+  .hero-art:after{box-shadow:inset 0 120px 96px -80px #000,inset 0 -180px 144px -96px #000}
+  .artist-name{font-size:10.1vw;margin-top:24px;letter-spacing:-.075em}
+  .hero-meta{font-size:7px}.hero-coordinate{top:35%;right:16px;font-size:7px}
+  .hero-bottom{left:16px;right:16px;bottom:96px;display:block}
+  .hero-intro{max-width:100%}.hero-intro>.eyebrow{max-width:none;font-size:7px;letter-spacing:.06em}
+  .hero-intro>p{font-size:30px;line-height:36px;letter-spacing:-.05em;margin-top:16px}
+  .hero-intro .button{min-width:224px;margin-top:24px}
+  .hero-side-note{display:none}
+  .artist-about{padding-top:64px;padding-bottom:64px}
+  .artist-about .word-reveal{font-size:10.2vw;line-height:1.15}
+  .artist-bio{grid-template-columns:1fr;gap:24px;margin-top:40px}
+  .artist-bio>p{font-size:18px;line-height:28px;max-width:480px}
+  .artist-bio>div{font-size:12px;line-height:24px}
+  .artist-bio .manifesto-sign{display:block;margin-top:8px;font-size:36px}
+  .release{padding-top:64px;padding-bottom:64px}.release-grid{grid-template-columns:1fr;gap:32px}
+  .cover-wrap{max-width:360px;margin:0 auto}.release-copy h2{font-size:60px;line-height:1;margin-top:12px}
+  .release-description{font-size:14px;line-height:24px}.platform-links{gap:16px;font-size:8px}
+  .film-poster{aspect-ratio:1.35/1}.film-poster>img{object-position:60% center}
+  .film-poster-top{top:16px;left:16px;right:16px;font-size:6px}
+  .film-poster-play{width:64px;height:64px}.film-poster-bottom{left:16px;right:16px;bottom:16px;gap:16px}
+  .film-poster-bottom>span:first-child{font-size:30px}.film-poster-bottom small{font-size:6px;line-height:12px;margin-top:8px;max-width:180px}
+  .film-poster-bottom>span:last-child{font-size:8px;line-height:16px}
+  .contact-bottom{display:block}.contact-bottom p{font-size:10px;line-height:20px}.contact-bottom .text-link{margin-top:24px;font-size:10px}
+  #film-dialog{padding:16px;width:calc(100% - 16px);max-height:calc(100svh - 16px)}
+  .dialog-bar{gap:16px}.dialog-bar h2{font-size:8px;line-height:16px}.dialog-bar button{font-size:8px;gap:8px}
+  #film-dialog video{height:auto;max-height:74svh;width:100%}
+}
+@media(prefers-reduced-motion:reduce){.hero-art{background:none;transform:none!important}.world-image{animation:none;transform:none}.hero-art canvas{display:none}}
+
+/* Minimal artist masthead, requested by the artist. */
+.header{max-width:1200px;top:32px;left:32px;right:32px}
+.header .wordmark{font-size:30px}
+.desktop-nav{border:0;padding:0;border-radius:0;background:none;backdrop-filter:none;gap:32px;color:#93918e;font-size:10px;line-height:16px}
+.header-cta{font-size:10px;line-height:16px;border:0;padding:8px 0;color:var(--muted);gap:12px}
+.header-cta:hover{color:var(--white);background:none}
+.hero{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;text-align:center;min-height:560px;height:76svh;max-height:780px;padding:144px 24px 96px;isolation:isolate;background:#000}
+.hero-kicker{font-size:8px;line-height:16px;letter-spacing:.16em;color:#777570;animation:minimal-enter 1s var(--curve) both}
+.artist-name{font-family:Wordmark,serif;font-size:clamp(72px,8vw,128px);font-weight:700;line-height:1.2;letter-spacing:-.025em;background:none;color:var(--white);margin:24px 0 0;max-width:100%;animation:minimal-enter 1.2s var(--curve) both}
+.hero-caption{font-size:12px;line-height:20px;letter-spacing:0;color:var(--muted);margin-top:16px;animation:minimal-enter 1.4s var(--curve) both}
+.hero-listen{font-size:12px;line-height:20px;padding:12px 24px;min-height:48px;margin-top:32px;min-width:168px;gap:32px;animation:minimal-enter 1.6s var(--curve) both}
+.hero .scroll-cue{left:32px;right:32px;bottom:24px;max-width:1200px;justify-content:center;gap:16px;font-size:7px;line-height:16px;letter-spacing:.12em;color:#777570}
+.hero .scroll-cue>span:last-child{font-size:14px;color:#777570}
+.cover{height:auto!important;width:100%;aspect-ratio:1/1;object-fit:cover}
+.cover-wrap{align-self:start}
+.film-poster>img{position:absolute;inset:0;height:100%;width:100%;aspect-ratio:auto}
+.artist-about{max-width:1264px;padding-top:80px}
+.artist-about .word-reveal{font-size:clamp(36px,6vw,72px);line-height:1.1}
+.section{max-width:1264px}
+.release-grid{grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:64px}
+.artist-bio{gap:48px}
+.grain{opacity:.025}
+@keyframes minimal-enter{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@media(max-width:1000px){.release-grid{gap:40px}.hero{min-height:560px;height:76svh}.artist-name{font-size:96px}}
+@media(max-width:700px){
+  .header{top:24px;left:16px;right:16px}.header .wordmark{font-size:24px}.header-cta{font-size:8px;padding:8px 0}
+  .hero{height:72svh;min-height:520px;max-height:720px;padding:128px 16px 96px}
+  .hero-kicker{font-size:6px;letter-spacing:.1em}.artist-name{font-size:clamp(60px,17vw,96px);line-height:1.2;margin-top:24px;letter-spacing:-.025em}
+  .hero-caption{font-size:10px;line-height:20px;margin-top:16px}.hero-listen{font-size:10px;min-width:160px;margin-top:24px}
+  .hero .scroll-cue{left:16px;right:16px;bottom:24px;font-size:6px}
+  .release-grid{grid-template-columns:minmax(0,1fr);gap:32px}.cover-wrap{max-width:320px;margin:auto}
+  .artist-about{padding-top:64px}.artist-about .word-reveal{font-size:10vw;line-height:1.15}
+}

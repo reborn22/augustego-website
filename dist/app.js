@@ -20,8 +20,8 @@ function paintScroll() {
   words.forEach((word, index) => word.classList.toggle('lit', reducedMotion.matches || progress > index / words.length));
   if (!reducedMotion.matches) {
     const y = Math.min(window.scrollY, 1100);
-    heroArt.style.transform = `translate(-50%, ${y * .15}px)`;
-    ticker.style.transform = `translateX(${-window.scrollY * .18}px)`;
+    if(heroArt) heroArt.style.transform = `translateY(${y * .12}px)`;
+    if(ticker) ticker.style.transform = `translateX(${-window.scrollY * .18}px)`;
   }
 }
 addEventListener('scroll', () => {
@@ -37,6 +37,8 @@ function setMenu(open) {
   menuToggle.setAttribute('aria-expanded', String(open));
   menuToggle.setAttribute('aria-label', open ? 'Закрыть меню' : 'Открыть меню');
   mobileMenu.inert = !open;
+  document.querySelector('main').inert = open;
+  document.querySelector('footer').inert = open;
   if (open) mobileMenu.querySelector('a').focus();
 }
 menuToggle.addEventListener('click', () => setMenu(menuToggle.getAttribute('aria-expanded') !== 'true'));
@@ -58,7 +60,7 @@ const navObserver = new IntersectionObserver(entries => {
     });
   }
 }, { rootMargin: '-10% 0px -55% 0px' });
-document.querySelectorAll('#release,#film,#connect').forEach(el => navObserver.observe(el));
+document.querySelectorAll('#about,#release,#film,#connect').forEach(el => navObserver.observe(el));
 
 const audio = document.querySelector('#audio');
 const player = document.querySelector('#audio-player');
@@ -67,7 +69,6 @@ const seek = document.querySelector('#seek');
 const time = document.querySelector('#time');
 const audioStatus = document.querySelector('#audio-status');
 const musicVideo = document.querySelector('#music-video');
-const moonVideo = document.querySelector('.moon-video');
 const waveform = document.querySelector('.waveform');
 const formatTime = seconds => Number.isFinite(seconds) ? `${Math.floor(seconds / 60)}:${String(Math.floor(seconds % 60)).padStart(2, '0')}` : '0:00';
 let peaks = [];
@@ -124,13 +125,16 @@ audio.addEventListener('error', () => { stopped(); audioStatus.textContent = 'Н
 seek.addEventListener('input', () => { if (Number.isFinite(audio.duration)) audio.currentTime = Number(seek.value) / 100 * audio.duration; syncTime(); });
 musicVideo.addEventListener('play', () => audio.pause());
 musicVideo.addEventListener('error', () => {
-  const message = document.createElement('p'); message.className = 'player-status'; message.textContent = 'Видео не загрузилось. Обнови страницу или послушай SILA в разделе «Музыка».'; musicVideo.after(message);
+  document.querySelector('#video-error').textContent = 'Видео не загрузилось. Обнови страницу или послушай трек в разделе «Музыка».';
 });
-function syncMotion() {
-  if (reducedMotion.matches) { moonVideo.pause(); heroArt.style.transform = ''; ticker.style.transform = ''; }
-  else moonVideo.play().catch(() => {});
-  paintScroll();
-}
-reducedMotion.addEventListener('change', syncMotion); syncMotion();
-document.addEventListener('visibilitychange', () => { if (document.hidden) moonVideo.pause(); else syncMotion(); });
+const filmDialog = document.querySelector('#film-dialog');
+document.querySelector('#open-film').addEventListener('click', () => {
+  audio.pause(); filmDialog.showModal(); document.body.classList.add('film-open');
+  musicVideo.play().catch(() => {});
+});
+document.querySelector('#close-film').addEventListener('click', () => filmDialog.close());
+filmDialog.addEventListener('click', event => { if (event.target === filmDialog && (event.clientX < filmDialog.getBoundingClientRect().left || event.clientX > filmDialog.getBoundingClientRect().right || event.clientY < filmDialog.getBoundingClientRect().top || event.clientY > filmDialog.getBoundingClientRect().bottom)) filmDialog.close(); });
+filmDialog.addEventListener('close', () => { musicVideo.pause(); document.body.classList.remove('film-open'); document.querySelector('#open-film').focus({preventScroll:true}); });
+
+reducedMotion.addEventListener('change', paintScroll);
 document.querySelector('#year').textContent = new Date().getFullYear();

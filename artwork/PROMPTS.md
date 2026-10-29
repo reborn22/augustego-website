@@ -1,0 +1,15 @@
+# Generated artwork
+
+Generated with the built-in Imagegen tool. Original PNG files are saved beside this document. Optimized JPG files are in ../dist/assets/.
+
+## Artist world
+
+Original: artwork/augustego-world-v2.png. Web: dist/assets/augustego-world-v2.jpg. Retained for sharing art and future use; the artist requested a minimal typographic hero instead.
+
+Use case: stylized-concept. Asset type: cinematic panoramic website background for independent Saint Petersburg rap artist AUGUSTEGO. Create a single striking very wide landscape 2.4:1 image, high-end dark underground music art direction, photographic cinematic realism. A single anonymous figure wearing a black hooded jacket seen from behind or 3/4 back, face completely hidden, standing slightly right of center on a vast rain-soaked concrete dock in a brutalist industrial Saint Petersburg waterfront at night. Rusted cranes, distant concrete blocks, a hint of steel drawbridge cables and smoke in the far distance. Huge dark scarlet red eclipsed sun low in fog, off-center left behind the silhouette, reflected in irregular wet black pavement. Deep ink blacks, dirty silver monochrome, dark blood red only, harsh red edge lighting on shoulders, thick atmospheric smoke, analog film grain, subtle dirty lens texture. The whole image must be a CONTINUOUS PANORAMIC SCENE from left edge to right edge, with detailed smoke and industrial environment across the width. Figure occupies about 35 percent of image height, environmental wide shot, no portrait photo or panel. Top third and left quarter are dark negative space for website typography. Brooding, confrontational, powerful, raw art-house hip hop. No text, letters, words, logos, watermark, rounded frames, cards, UI, collage borders or mockup. Save image output for use in the user's local website.
+
+## Visual archive
+
+Original: artwork/visual-archive-v2.png. Web: dist/assets/visual-archive-v2.jpg. Used for the wide clip poster.
+
+Use case: stylized-concept. Asset type: wide 2.4:1 cinematic video-poster artwork for an underground Saint Petersburg rapper's visual archive. A brutally tactile sculptural closeup of a battered chrome studio microphone suspended horizontally in dense black smoke, its silver metal mesh shell broken apart as if sound pressure cracked it, irregular jagged metallic fragments and a few tiny dark red embers floating around it, a dark blood-red light beam grazes the microphone from the side. Physically realistic 3D editorial photography, dirty silver and ink black, sparse crimson, high contrast, heavy analog film grain, dramatic precise reflections, extreme material detail. The microphone is centered horizontally but sized at 45 percent of image width; entire composition is LANDSCAPE, uninterrupted black atmospheric space along all four edges. This is raw hip hop visual art, visceral and dark, no fantasy wizard objects, no neon cyan, no purple. No people, no face, no moon, no city, no text, no letters, no logos, no frame, no card, no UI, no watermark. Avoid a recognizable commercial product brand.

@@ -10,26 +10,23 @@ document.querySelectorAll('.reveal').forEach(el => reveals.observe(el));
 
 const words = [...document.querySelectorAll('.word-reveal span')];
 const progressBar = document.querySelector('.reading-progress');
-const parallaxImages = [...document.querySelectorAll('[data-parallax]')];
+const navSections = [...document.querySelectorAll('#about,#release,#film,#connect')];
+const navLinks = [...document.querySelectorAll('.desktop-nav a')];
 let scrollScheduled = false;
 function paintScroll() {
   scrollScheduled = false;
   const trigger = innerHeight * .78;
-  const heading = document.querySelector('.word-reveal').getBoundingClientRect();
-  const progress = (trigger - heading.top) / (heading.height + innerHeight * .15);
+  const heading = document.querySelector('.world-band').getBoundingClientRect();
+  const progress = (trigger - heading.top) / (heading.height - innerHeight * .25);
   words.forEach((word, index) => word.classList.toggle('lit', reducedMotion.matches || progress > index / words.length));
+  const currentSection = navSections.filter(section => section.getBoundingClientRect().top <= innerHeight * .4).at(-1);
+  navLinks.forEach(link => {
+    if (currentSection && link.hash === `#${currentSection.id}`) link.setAttribute('aria-current', 'location');
+    else link.removeAttribute('aria-current');
+  });
   if (!reducedMotion.matches) {
     const scrollRange = document.documentElement.scrollHeight - innerHeight;
     progressBar.style.transform = `scaleX(${scrollRange > 0 ? Math.min(1,scrollY / scrollRange) : 0})`;
-    parallaxImages.forEach(image => {
-      const rect = image.parentElement.getBoundingClientRect();
-      if(rect.bottom > 0 && rect.top < innerHeight) {
-        const shift = Math.max(-24, Math.min(24, (innerHeight / 2 - rect.top - rect.height / 2) * .04));
-        image.style.transform = `translateY(${shift}px) scale(1.08)`;
-      }
-    });
-  } else {
-    parallaxImages.forEach(image => { image.style.transform = ''; });
   }
 }
 addEventListener('scroll', () => {
@@ -51,6 +48,9 @@ function setMenu(open) {
 }
 menuToggle.addEventListener('click', () => setMenu(menuToggle.getAttribute('aria-expanded') !== 'true'));
 mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { setMenu(false); menuToggle.focus({preventScroll:true}); }));
+document.querySelectorAll('.header a').forEach(a => a.addEventListener('click', () => {
+  if (document.body.classList.contains('menu-open')) setMenu(false);
+}));
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape' && document.body.classList.contains('menu-open')) { setMenu(false); menuToggle.focus(); }
   if (e.key === 'Tab' && document.body.classList.contains('menu-open')) {
@@ -61,14 +61,6 @@ document.addEventListener('keydown', e => {
   }
 });
 matchMedia('(max-width:760px)').addEventListener('change', e => { if (!e.matches) setMenu(false); });
-const navObserver = new IntersectionObserver(entries => {
-  for (const entry of entries) if (entry.isIntersecting) {
-    document.querySelectorAll('.desktop-nav a').forEach(a => {
-      if (a.hash === `#${entry.target.id}`) a.setAttribute('aria-current', 'location'); else a.removeAttribute('aria-current');
-    });
-  }
-}, { rootMargin: '-10% 0px -55% 0px' });
-document.querySelectorAll('#about,#release,#film,#connect').forEach(el => navObserver.observe(el));
 
 const audio = document.querySelector('#audio');
 const player = document.querySelector('#audio-player');

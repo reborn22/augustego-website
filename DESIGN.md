@@ -1,38 +1,44 @@
-# AUGUSTEGO / editorial redesign
+# AUGUSTEGO / ECHO
 
-The site introduces the artist. «Сила» is the debut single, as confirmed by the artist. Never invent further releases, dates, concerts, press, testimonials or statistics.
+Artist website. Primary action: listen to the music. «Сила» is the debut single, confirmed by the artist. Do not invent releases, shows, press, statistics or merchandise.
 
-## Diagnosis
+## Direction
 
-The earlier version had labels as small as 6–10px, a mostly empty symmetrical masthead, repeated section composition, no distinct visual chapter and contradictory CSS overrides. The first release cover also inherited a 3000px HTML height, now fixed through explicit intrinsic sizing.
+The user selected a new motion direction after reviewing live references. The current site combines a minimal artist masthead, original typographic echoes and a continuous sequence of full-screen chapters. Public reference code was studied, not copied or installed.
 
-## Current design
+References: research/REFERENCES-2026-10-29.md. A Drift informed typographic trails; The Drive informed continuity; Carpetman informed artist-first structure.
 
-Dark editorial music journal. Minimal typographic masthead; original gothic wordmark treated as the artist's existing brand mark; Manrope as the sole UI font. Type sizes use the skill's Tailwind scale, with a 12px minimum. Spacing uses the supplied token scale. Flat black and charcoal surfaces; a single muted red accent. Hero wordmark uses the prescribed text gradient.
+Existing gothic artist lettering is treated as a brand graphic. Manrope is the sole UI typeface. The oversized canvas wordmark and red print chapter are deliberate interpretations of the user's selected references, overriding generic skill defaults for heading width/type scale and dark background palette. Flat black, off-white and red; no gradient backgrounds. A gradient is used only in the hero's letter ink.
 
-Sequence: artist masthead → wide visual world → artist statement → discography → clip → six short questions → social links and final listening CTA.
+## Sequence
 
-The wide city artwork is a separate visual chapter beneath the minimal masthead, not a portrait card or hero background. The album cover is square. The vertical clip only appears in a dialog after the visitor asks to watch it.
+Minimal floating navigation → full-viewport artist name and listening action → red typographic manifesto → short artist introduction → debut release and full player → visual chapter with a real excerpt of the supplied clip → optional liner notes → contact and listening action.
 
-Primary action: «Слушать музыку» in the masthead and closing section. The discography provides the actual track, full playback without registration and links to the supplied release platforms.
+The artist rejected the generated city panorama and chrome microphone. Both were removed from dist and from all page/share metadata. The manifesto contains no illustration. The visual chapter uses a 3.5-second silent excerpt from the supplied final clip, not a newly generated image. Original discarded generation records remain in artwork for provenance.
 
-Motion: 32px entrance over 800ms through IntersectionObserver, ordered word activation in the artist statement, subtle bounded photo parallax, a transform-based reading indicator, live audio spectrum, weighted hover states, and a full-height mobile menu with 60ms link staggering. All movement uses the prescribed cubic-bezier; reduced-motion support removes movement and the live spectrum.
+## Motion
 
-Player states: play, pause, ended, loading skeleton waveform, failed playback and failed media load. Audio and video never play simultaneously. Closing the video dialog pauses playback and restores keyboard focus.
+motion.js implements original Canvas 2D lettering. Seven outline echoes follow bounded pointer input and scroll; requestAnimationFrame stops once movement settles and while the document is hidden. Canvas pixel ratio is capped at 2; fonts load before replacing the semantic fallback heading. ResizeObserver handles responsive layout. No new runtime dependencies.
 
-## Sources
+The manifesto's print and black shutter move on scroll. Words activate individually. Scroll work is throttled through requestAnimationFrame. Native IntersectionObserver handles reveals and the muted clip excerpt; the excerpt pauses offscreen, with reduced motion, in hidden tabs and during the full clip dialog. Reduced motion also removes the sticky scroll interval, pointer echoes and major transforms.
 
-The release and platform links were read from https://band.link/SISl5.
-The artist's bio and social links come from the supplied project materials.
-Imagegen artwork and exact prompts: artwork/PROMPTS.md.
-Manrope and UnifrakturCook licenses are shipped in dist/assets/.
+Player and video never play sound simultaneously. Closing the dialog pauses the full clip and restores focus. Header sound bars reflect actual audio playback. Full-height mobile menu supports Escape and focus wrapping; header links also close an open menu. Current navigation follows the actual section position.
 
-## Verification
+## Assets
 
-JavaScript syntax; local asset references; unique IDs and anchors; no text below 12px; desktop and mobile horizontal overflow; square cover at both viewport sizes; full-track playback and pause; mobile-menu opening and closing; video-dialog opening, playback and pause on closing.
+- sila-cover.jpg: supplied cover, square intrinsic dimensions.
+- sila.mp3: supplied full track, 126.135 seconds.
+- sila-film.mp4: supplied final vertical clip.
+- sila-excerpt.mp4 / .jpg: extracted using ffmpeg from sila-film.mp4 at 16.7 seconds (3.5-second loop) / 17.5 seconds (poster). No additional image generation in this version.
+- og-augustego.jpg: code-rendered brand lettering using the supplied fonts; share image introduces the artist rather than a single release.
+- Local font files and their licenses retained.
+
+## Checks
+
+JavaScript syntax for app.js and motion.js; all 43 HTML references; 26 unique IDs and hash targets; no references to discarded images; desktop and mobile overflow; square cover; audio playback and pause; audio/video exclusivity and pause on closing; mobile menu opening/closing; browser error log. The reduced-motion CSS and JS paths were checked in source; an OS reduced-motion setting was not emulated in the browser.
 
 ## Publication
 
-GitHub repository: https://github.com/reborn22/augustego-website
-GitHub Pages: https://reborn22.github.io/augustego-website/
-Publishing is handled by the existing Pages workflow on each push to main.
+GitHub: https://github.com/reborn22/augustego-website
+Pages: https://reborn22.github.io/augustego-website/
+Existing workflow publishes dist on main pushes and now validates both JS files.

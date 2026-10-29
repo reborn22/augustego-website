@@ -1,6 +1,6 @@
 @font-face{font-family:Manrope;src:url('assets/Manrope.ttf') format('truetype');font-weight:200 800;font-display:swap}
 @font-face{font-family:Wordmark;src:url('assets/UnifrakturCook.ttf') format('truetype');font-weight:700;font-display:swap}
-:root{--bg:#000000;--surface:#181818;--surface-raised:#1f1f1f;--white:#eeece7;--muted:#a29f99;--dim:#74716d;--red:#cd3038;--line:#313131;--curve:cubic-bezier(.22,1,.36,1);--space-1:8px;--space-2:16px;--space-3:24px;--space-4:32px;--space-5:48px;--space-6:64px;--space-7:96px}
+:root{--bg:#000000;--surface:#181818;--surface-raised:#1f1f1f;--white:#eeece7;--muted:#a29f99;--dim:#8b8781;--red:#d43c43;--line:#313131;--curve:cubic-bezier(.22,1,.36,1);--space-1:8px;--space-2:16px;--space-3:24px;--space-4:32px;--space-5:48px;--space-6:64px;--space-7:96px}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:96px}
 body{margin:0;background:var(--bg);color:var(--white);font-family:Manrope,sans-serif;font-size:16px;line-height:24px;-webkit-font-smoothing:antialiased;overflow-x:clip}

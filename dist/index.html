@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080808">
+  <title>AUGUSTEGO — SILA | Рэп из Санкт-Петербурга</title>
+  <meta name="description" content="Холодный город. Тяжёлый звук. Слушай SILA, смотри клип и следи за AUGUSTEGO. Рэп из Санкт-Петербурга.">
+  <meta property="og:title" content="AUGUSTEGO — SILA">
+  <meta property="og:description" content="Холодный город. Тяжёлый звук. Новый сингл SILA.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://augustego-sila.beigegnome128.chatgpt.site/assets/sila-cover.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="preload" href="assets/Unbounded.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip" href="#release">Перейти к музыке</a>
+  <div class="grain" aria-hidden="true"></div>
+  <header class="header">
+    <a href="#home" class="wordmark" aria-label="AUGUSTEGO — главная">augustego</a>
+    <nav class="desktop-nav" aria-label="Основная навигация">
+      <a href="#release">Музыка</a><a href="#film">Визуал</a><a href="#connect">На связи</a>
+    </nav>
+    <a class="header-cta" href="https://band.link/SISl5" target="_blank" rel="noopener noreferrer">Слушать SILA <span aria-hidden="true">↗</span></a>
+    <button class="menu-toggle" aria-label="Открыть меню" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span></button>
+  </header>
+  <nav id="mobile-menu" class="mobile-menu" aria-label="Мобильная навигация" inert>
+    <a href="#release">Музыка <span>01</span></a><a href="#film">Визуал <span>02</span></a><a href="#connect">На связи <span>03</span></a>
+    <p>Санкт-Петербург / AUGUSTEGO</p>
+  </nav>
+  <main id="home">
+    <section class="hero" aria-labelledby="artist-name">
+      <div class="hero-meta"><span><i class="signal"></i> ИЗ САНКТ-ПЕТЕРБУРГА</span><span>НЕЗАВИСИМЫЙ ЗВУК</span></div>
+      <h1 id="artist-name" class="artist-name">AUGUSTEGO</h1>
+      <div class="hero-art" aria-hidden="true">
+        <video class="moon-video" autoplay muted loop playsinline poster="assets/hero.jpg" preload="metadata"><source src="assets/moon-loop.mp4" type="video/mp4"></video>
+        <div class="art-cross cross-one">+</div><div class="art-cross cross-two">+</div>
+        <span class="art-label">SILA / VISUAL TRANSMISSION</span>
+      </div>
+      <div class="hero-bottom">
+        <div class="hero-intro"><span class="eyebrow">ХОЛОДНЫЙ ГОРОД. ТЯЖЁЛЫЙ ЗВУК.</span><p>Громче, чем<br>ты готов услышать.</p></div>
+        <a class="hero-release" href="https://band.link/SISl5" target="_blank" rel="noopener noreferrer"><span class="release-status">НОВЫЙ СИНГЛ</span><span class="release-title">SILA <span class="diagonal" aria-hidden="true">↗</span></span><span class="release-link">Слушать на всех площадках</span></a>
+      </div>
+      <a class="scroll-cue" href="#release"><span>ПОГРУЗИТЬСЯ</span><span aria-hidden="true">↓</span></a>
+    </section>
+
+    <div class="ticker" aria-hidden="true"><div>AUGUSTEGO <span>✦</span> САНКТ-ПЕТЕРБУРГ <span>✦</span> SILA <span>✦</span> ЗВУЧОК ЛОМАЕТ КОСТЬ <span>✦</span> AUGUSTEGO <span>✦</span> САНКТ-ПЕТЕРБУРГ <span>✦</span> SILA <span>✦</span> ЗВУЧОК ЛОМАЕТ КОСТЬ <span>✦</span></div></div>
+
+    <section class="release section" id="release" aria-labelledby="release-heading">
+      <div class="section-label reveal"><span>01 / МУЗЫКА</span><span>PLAY IT LOUD</span></div>
+      <div class="release-grid">
+        <div class="cover-wrap reveal"><img class="cover" src="assets/sila-cover.jpg" alt="Обложка SILA: хромовые готические буквы с красными бликами" width="3000" height="3000" loading="lazy"><span class="cover-caption">AUGUSTEGO / SILA</span></div>
+        <div class="release-copy reveal"><span class="eyebrow red">НОВЫЙ СИНГЛ / EXPLICIT</span><h2 id="release-heading">SILA<span class="title-dot">.</span></h2><p class="release-description">Холодный серый щебень.<br>Пара панчей в уши.<br>Всё остальное — в звуке.</p>
+          <div class="track-meta"><span>РЭП / ХИП-ХОП</span><span>152 BPM</span><span>02:06</span></div>
+          <a class="button button-red" href="https://band.link/SISl5" target="_blank" rel="noopener noreferrer">Слушать на площадках <span aria-hidden="true">↗</span></a>
+          <div class="audio-player" id="audio-player">
+            <div class="player-top"><button id="play" class="play" aria-label="Включить SILA"><svg class="play-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 11 7-11 7z"/></svg><svg class="pause-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h4v14H7zm7 0h4v14h-4z"/></svg></button><div class="track-title"><strong>Сначала почувствуй</strong><span>SILA — AUGUSTEGO</span></div><span id="time" class="time">0:00 / 2:06</span></div>
+            <div class="waveform" aria-hidden="true"></div><label class="sr-only" for="seek">Позиция воспроизведения</label><input id="seek" type="range" value="0" min="0" max="100" step="0.1" aria-valuetext="0:00"><p id="audio-status" class="player-status" aria-live="polite">Полный трек. Звук включаешь ты.</p>
+          </div>
+          <audio id="audio" preload="metadata" src="assets/sila.mp3"></audio>
+        </div>
+      </div>
+    </section>
+
+    <section class="manifesto section" aria-labelledby="manifesto-heading">
+      <div class="section-label reveal"><span>ИЗ ТЕКСТА / SILA</span><span aria-hidden="true">✦</span></div>
+      <h2 id="manifesto-heading" class="word-reveal"><span>Хип-хоп</span> <span>не</span><br><span>ремесло.</span><br><span class="red-word">На</span> <span class="red-word">стиль</span> <span class="red-word">мясной.</span></h2>
+      <div class="manifesto-bottom reveal"><span class="asterisk" aria-hidden="true">✦</span><p>Рэп из Санкт-Петербурга.<br>Дымный след. Свой почерк.<br>На микрофоне — два тага.</p><span class="manifesto-sign">augustego</span></div>
+    </section>
+
+    <section class="film section" id="film" aria-labelledby="film-heading">
+      <div class="section-label reveal"><span>02 / ВИЗУАЛ</span><span>СМОТРИ В ТЕМНОТЕ</span></div>
+      <div class="film-heading reveal"><h2 id="film-heading">У звука<br>есть тень<span class="red">.</span></h2><p>SILA / ВИЗУАЛЬНАЯ ВЕРСИЯ<br><span>Дым. Хром. Красное на чёрном.</span></p></div>
+      <div class="film-stage reveal"><span class="film-side side-left" aria-hidden="true">SILA</span><div class="film-frame"><video id="music-video" controls playsinline preload="none" poster="assets/hero.jpg" aria-label="AUGUSTEGO — SILA, вертикальный клип"><source src="assets/sila-film.mp4" type="video/mp4"></video></div><span class="film-side side-right" aria-hidden="true">SILA</span><span class="film-corner">AUGUSTEGO<br>ВЕРТИКАЛЬНЫЙ КЛИП / 00:57</span><span class="film-corner corner-right">ЗВУК ВНУТРИ<br>НАЖМИ PLAY ↗</span></div>
+    </section>
+
+    <section class="details section" aria-labelledby="details-heading">
+      <div class="section-label reveal"><span>03 / БЛИЖЕ К ЗВУКУ</span><h2 id="details-heading">Без лишнего шума</h2></div>
+      <div class="faq-list reveal">
+        <details><summary>Кто такой AUGUSTEGO?<span aria-hidden="true">+</span></summary><p>Независимый рэп-исполнитель из Санкт-Петербурга. Здесь — музыка, визуал и прямые ссылки на артиста.</p></details>
+        <details><summary>Где слушать SILA?<span aria-hidden="true">+</span></summary><p>Выбирай удобную площадку на <a href="https://band.link/SISl5" target="_blank" rel="noopener noreferrer">странице релиза ↗</a>.</p></details>
+        <details><summary>Можно послушать прямо здесь?<span aria-hidden="true">+</span></summary><p>Да. Полный трек доступен в плеере в разделе «Музыка». Воспроизведение начинается только после нажатия.</p></details>
+        <details><summary>Где посмотреть клип?<span aria-hidden="true">+</span></summary><p>Вертикальный клип SILA — выше, в разделе «Визуал». Для просмотра на весь экран используй кнопку в плеере.</p></details>
+        <details><summary>Где следить за новыми релизами?<span aria-hidden="true">+</span></summary><p>Подписывайся на <a href="https://vk.com/augustego" target="_blank" rel="noopener noreferrer">VK</a> и <a href="https://youtube.com/@augustego" target="_blank" rel="noopener noreferrer">YouTube</a>.</p></details>
+        <details><summary>Как связаться по сотрудничеству?<span aria-hidden="true">+</span></summary><p>Напиши AUGUSTEGO <a href="https://vk.com/augustego" target="_blank" rel="noopener noreferrer">во ВКонтакте ↗</a>.</p></details>
+      </div>
+    </section>
+
+    <section class="connect section" id="connect" aria-labelledby="connect-heading">
+      <div class="section-label reveal"><span>04 / НА СВЯЗИ</span><span>SAINT PETERSBURG</span></div>
+      <div class="connect-top reveal"><h2 id="connect-heading">Оставайся<br>на частоте<span class="red">.</span></h2><a class="round-link" href="https://band.link/SISl5" target="_blank" rel="noopener noreferrer" aria-label="Слушать SILA на площадках">↗</a></div>
+      <div class="social-links reveal"><a href="https://vk.com/augustego" target="_blank" rel="noopener noreferrer"><span>ВКонтакте</span><span aria-hidden="true">↗</span></a><a href="https://youtube.com/@augustego" target="_blank" rel="noopener noreferrer"><span>YouTube</span><span aria-hidden="true">↗</span></a><a href="https://instagram.com/augustego" target="_blank" rel="noopener noreferrer"><span>Instagram</span><span aria-hidden="true">↗</span></a></div>
+      <a class="button button-red final-cta reveal" href="https://band.link/SISl5" target="_blank" rel="noopener noreferrer">Слушать SILA <span aria-hidden="true">↗</span></a>
+    </section>
+  </main>
+  <footer class="footer"><a href="#home" class="wordmark">augustego</a><span>© <span id="year">2026</span> AUGUSTEGO</span><div><a href="privacy.html">Конфиденциальность</a><a href="terms.html">Условия</a><a href="#home" aria-label="Наверх">↑</a></div></footer>
+  <script src="app.js" defer></script>
+</body>
+</html>

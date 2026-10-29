@@ -9,8 +9,8 @@ const reveals = new IntersectionObserver(entries => {
 document.querySelectorAll('.reveal').forEach(el => reveals.observe(el));
 
 const words = [...document.querySelectorAll('.word-reveal span')];
-const heroArt = document.querySelector('.hero-art');
-const ticker = document.querySelector('.ticker>div');
+const progressBar = document.querySelector('.reading-progress');
+const parallaxImages = [...document.querySelectorAll('[data-parallax]')];
 let scrollScheduled = false;
 function paintScroll() {
   scrollScheduled = false;
@@ -19,9 +19,17 @@ function paintScroll() {
   const progress = (trigger - heading.top) / (heading.height + innerHeight * .15);
   words.forEach((word, index) => word.classList.toggle('lit', reducedMotion.matches || progress > index / words.length));
   if (!reducedMotion.matches) {
-    const y = Math.min(window.scrollY, 1100);
-    if(heroArt) heroArt.style.transform = `translateY(${y * .12}px)`;
-    if(ticker) ticker.style.transform = `translateX(${-window.scrollY * .18}px)`;
+    const scrollRange = document.documentElement.scrollHeight - innerHeight;
+    progressBar.style.transform = `scaleX(${scrollRange > 0 ? Math.min(1,scrollY / scrollRange) : 0})`;
+    parallaxImages.forEach(image => {
+      const rect = image.parentElement.getBoundingClientRect();
+      if(rect.bottom > 0 && rect.top < innerHeight) {
+        const shift = Math.max(-24, Math.min(24, (innerHeight / 2 - rect.top - rect.height / 2) * .04));
+        image.style.transform = `translateY(${shift}px) scale(1.08)`;
+      }
+    });
+  } else {
+    parallaxImages.forEach(image => { image.style.transform = ''; });
   }
 }
 addEventListener('scroll', () => {
@@ -42,7 +50,7 @@ function setMenu(open) {
   if (open) mobileMenu.querySelector('a').focus();
 }
 menuToggle.addEventListener('click', () => setMenu(menuToggle.getAttribute('aria-expanded') !== 'true'));
-mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { setMenu(false); menuToggle.focus({preventScroll:true}); }));
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape' && document.body.classList.contains('menu-open')) { setMenu(false); menuToggle.focus(); }
   if (e.key === 'Tab' && document.body.classList.contains('menu-open')) {
@@ -52,7 +60,7 @@ document.addEventListener('keydown', e => {
     else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
   }
 });
-matchMedia('(max-width:700px)').addEventListener('change', e => { if (!e.matches) setMenu(false); });
+matchMedia('(max-width:760px)').addEventListener('change', e => { if (!e.matches) setMenu(false); });
 const navObserver = new IntersectionObserver(entries => {
   for (const entry of entries) if (entry.isIntersecting) {
     document.querySelectorAll('.desktop-nav a').forEach(a => {
@@ -111,16 +119,17 @@ playButton.addEventListener('click', async () => {
   try { await audio.play(); } catch { audioStatus.textContent = 'Не удалось включить трек. Попробуй ещё раз или открой релиз на площадке.'; }
 });
 audio.addEventListener('play', () => {
-  player.classList.add('playing'); playButton.setAttribute('aria-label', 'Приостановить SILA'); audioStatus.textContent = 'Играет SILA — AUGUSTEGO'; animateSound();
+  player.classList.add('playing'); document.body.classList.add('audio-playing'); playButton.setAttribute('aria-label', 'Приостановить SILA'); audioStatus.textContent = 'Играет «Сила» — AUGUSTEGO'; animateSound();
 });
+audio.addEventListener('playing', () => { player.classList.remove('loading'); audioStatus.textContent='Играет «Сила» — AUGUSTEGO'; });
 function stopped() {
-  player.classList.remove('playing'); playButton.setAttribute('aria-label', 'Включить SILA');
+  player.classList.remove('playing','loading'); document.body.classList.remove('audio-playing'); playButton.setAttribute('aria-label', 'Включить SILA');
   audioStatus.textContent = audio.ended ? 'Трек закончился. Ещё раз?' : 'На паузе. Вернись к звуку.';
   cancelAnimationFrame(audioFrame); peaks.forEach(bar => { bar.style.transform = 'scaleY(.8)'; });
 }
 audio.addEventListener('pause', stopped); audio.addEventListener('ended', stopped);
 audio.addEventListener('timeupdate', syncTime); audio.addEventListener('loadedmetadata', syncTime);
-audio.addEventListener('waiting', () => { audioStatus.textContent = 'Загружаем звук…'; });
+audio.addEventListener('waiting', () => { player.classList.add('loading'); audioStatus.textContent = 'Загружаем звук…'; });
 audio.addEventListener('error', () => { stopped(); audioStatus.textContent = 'Не удалось загрузить трек. Открой SILA по кнопке «Слушать на площадках».'; });
 seek.addEventListener('input', () => { if (Number.isFinite(audio.duration)) audio.currentTime = Number(seek.value) / 100 * audio.duration; syncTime(); });
 musicVideo.addEventListener('play', () => audio.pause());
@@ -136,5 +145,9 @@ document.querySelector('#close-film').addEventListener('click', () => filmDialog
 filmDialog.addEventListener('click', event => { if (event.target === filmDialog && (event.clientX < filmDialog.getBoundingClientRect().left || event.clientX > filmDialog.getBoundingClientRect().right || event.clientY < filmDialog.getBoundingClientRect().top || event.clientY > filmDialog.getBoundingClientRect().bottom)) filmDialog.close(); });
 filmDialog.addEventListener('close', () => { musicVideo.pause(); document.body.classList.remove('film-open'); document.querySelector('#open-film').focus({preventScroll:true}); });
 
-reducedMotion.addEventListener('change', paintScroll);
+reducedMotion.addEventListener('change', () => {
+  paintScroll();
+  if(reducedMotion.matches){cancelAnimationFrame(audioFrame);peaks.forEach(bar=>{bar.style.transform='scaleY(.8)';});}
+  else if(!audio.paused)animateSound();
+});
 document.querySelector('#year').textContent = new Date().getFullYear();

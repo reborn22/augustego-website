@@ -14,19 +14,20 @@
   <link rel="canonical" href="https://reborn22.github.io/augustego-website/">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
-  <link rel="preload" href="assets/Unbounded.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="assets/Manrope.ttf" as="font" type="font/ttf" crossorigin>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="artist.css">
 </head>
 <body>
   <a class="skip" href="#release">Перейти к музыке</a>
   <div class="grain" aria-hidden="true"></div>
+  <div class="reading-progress" aria-hidden="true"></div>
   <header class="header">
     <a href="#home" class="wordmark" aria-label="AUGUSTEGO — главная">augustego</a>
     <nav class="desktop-nav" aria-label="Основная навигация">
       <a href="#about">Артист</a><a href="#release">Музыка</a><a href="#film">Визуал</a><a href="#connect">На связи</a>
     </nav>
-    <a class="header-cta" href="#release">Слушать музыку <span aria-hidden="true">↘</span></a>
+    <a class="header-cta" href="#release"><span class="live-bars" aria-hidden="true"><i></i><i></i><i></i></span> Слушать</a>
     <button class="menu-toggle" aria-label="Открыть меню" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span></button>
   </header>
   <nav id="mobile-menu" class="mobile-menu" aria-label="Мобильная навигация" inert>
@@ -35,47 +36,48 @@
   </nav>
   <main id="home">
     <section class="hero" aria-labelledby="artist-name">
-      <span class="hero-kicker">НЕЗАВИСИМЫЙ РЭП / САНКТ-ПЕТЕРБУРГ</span>
-      <h1 id="artist-name" class="artist-name">augustego</h1>
-      <p class="hero-caption">Тёмный звук северного города.</p>
-      <a class="button button-red hero-listen" href="#release">Слушать <span aria-hidden="true">↘</span></a>
-      <a class="scroll-cue" href="#about"><span>ОБ АРТИСТЕ</span><span aria-hidden="true">↓</span></a>
+      <div class="hero-topline"><span class="hero-kicker"><i class="signal" aria-hidden="true"></i> Независимый рэп</span><span>Санкт-Петербург, Россия</span></div>
+      <div class="hero-composition"><div class="hero-main"><h1 id="artist-name" class="artist-name">augustego</h1><p class="hero-caption">Холодный город.<br>Тяжёлый звук. Свой почерк.</p><a class="button button-light hero-listen" href="#release">Слушать музыку <span aria-hidden="true">↗</span></a></div><div class="hero-aside"><span class="hero-aside-rule" aria-hidden="true"></span><p>У каждого города<br>есть тёмная сторона.<br><span>У этой — свой голос.</span></p><span class="hero-aside-sign wordmark" aria-hidden="true">a</span></div></div>
+      <div class="hero-foot"><p><span class="signal" aria-hidden="true"></span> Дебютный сингл «Сила» уже на площадках</p><a class="scroll-cue" href="#about">Внутри AUGUSTEGO <span aria-hidden="true">↓</span></a></div>
     </section>
 
+    <section class="world-band" aria-label="Визуальный мир AUGUSTEGO"><div class="world-window"><img class="world-photo" data-parallax src="assets/augustego-world-v2.jpg" alt="Безликий силуэт на тёмной петербургской набережной под красным затмением" width="1944" height="810" fetchpriority="high"><span class="world-stamp">Из города,<br>который внутри.</span><div class="world-caption"><span>AUGUSTEGO / Визуальный мир</span><span>Петербург. После темноты.</span></div></div></section>
+
     <section class="manifesto section artist-about" id="about" aria-labelledby="manifesto-heading">
-      <div class="section-label reveal"><span>01 / АРТИСТ</span><span>AUGUSTEGO — ЭТО ИМЯ.</span></div>
+      <div class="section-label reveal"><span>Об артисте</span><span>Свой голос. Своя территория.</span></div>
       <h2 id="manifesto-heading" class="word-reveal"><span>Город</span> <span>внутри.</span><br><span class="red-word">Звук</span> <span class="red-word">снаружи.</span></h2>
-      <div class="artist-bio reveal"><p>AUGUSTEGO — независимый рэп-исполнитель из Санкт-Петербурга.</p><div><p>Сырой звук. Плотные строки. Мрачный визуальный мир, в котором город становится частью музыки.</p><p>Первый сингл «Сила» — точка отсчёта. Дальше — следи за движением.</p><a class="text-link" href="https://vk.com/augustego" target="_blank" rel="noopener noreferrer">Быть на связи <span aria-hidden="true">↗</span></a></div><span class="manifesto-sign">augustego</span></div>
+      <div class="artist-bio reveal"><p>AUGUSTEGO — независимый рэп из Петербурга. Здесь город слышно в голосе.</p><div><p>Плотные строки, тяжёлый звук и визуал на границе света и тени. Всё складывается в один мир.</p><p>«Сила» — первый сингл и точка отсчёта. Имя, за которым стоит следить дальше: AUGUSTEGO.</p><a class="text-link" href="https://vk.com/augustego" target="_blank" rel="noopener noreferrer">Быть на связи <span aria-hidden="true">↗</span></a></div></div>
     </section>
 
     <section class="release section" id="release" aria-labelledby="release-heading">
-      <div class="section-label reveal"><span>02 / ДИСКОГРАФИЯ</span><span>С ЭТОГО НАЧИНАЕТСЯ ЗВУК</span></div>
+      <div class="section-label reveal"><span>Дискография</span><span>Начни со звука</span></div>
+      <div class="section-heading reveal"><h2>Музыка,<br>которая остаётся.</h2><p>Один релиз.<br>Первая точка в своей истории.</p></div>
       <div class="release-grid">
-        <div class="cover-wrap reveal"><img class="cover" src="assets/sila-cover.jpg" alt="Обложка SILA: хромовые готические буквы с красными бликами" width="3000" height="3000" loading="lazy"><span class="cover-caption">AUGUSTEGO / SILA</span></div>
-        <div class="release-copy reveal"><span class="eyebrow red">ДЕБЮТНЫЙ СИНГЛ / EXPLICIT</span><h2 id="release-heading">СИЛА<span class="title-dot">.</span></h2><p class="release-description">Первый выход.<br>Первый след.<br>Знакомство начинается здесь.</p>
-          <div class="track-meta"><span>РЭП / ХИП-ХОП</span><span>152 BPM</span><span>02:06</span></div>
+        <div class="cover-wrap reveal"><img class="cover" src="assets/sila-cover.jpg" alt="Обложка SILA: хромовые готические буквы с красными бликами" width="1200" height="1200" loading="lazy"><span class="cover-caption"><span>AUGUSTEGO / SILA</span><span>Первый сингл</span></span></div>
+        <article class="release-copy reveal"><span class="eyebrow red">Дебютный сингл <span class="explicit" aria-label="Ненормативная лексика">E</span></span><h3 id="release-heading">Сила<span class="title-dot">.</span></h3><p class="release-description">«В меню холодный серый щебень<br>да свинцовый ад».</p>
+          <div class="track-meta"><span>Рэп / Хип-хоп</span><span>152 BPM</span><span>02:06</span></div>
           <a class="button button-red" href="https://band.link/SISl5" target="_blank" rel="noopener noreferrer">Слушать на площадках <span aria-hidden="true">↗</span></a>
           <div class="platform-links"><a href="https://music.yandex.ru/album/44622065" target="_blank" rel="noopener noreferrer">Яндекс Музыка ↗</a><a href="https://open.spotify.com/album/6QlCmJmd8KuADV54fqdJPv" target="_blank" rel="noopener noreferrer">Spotify ↗</a><a href="https://music.apple.com/us/album/%D1%81%D0%B8%D0%BB%D0%B0-single/6826195913" target="_blank" rel="noopener noreferrer">Apple Music ↗</a></div>
           <div class="audio-player" id="audio-player">
-            <div class="player-top"><button id="play" class="play" aria-label="Включить SILA"><svg class="play-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 11 7-11 7z"/></svg><svg class="pause-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h4v14H7zm7 0h4v14h-4z"/></svg></button><div class="track-title"><strong>Сначала почувствуй</strong><span>SILA — AUGUSTEGO</span></div><span id="time" class="time">0:00 / 2:06</span></div>
-            <div class="waveform" aria-hidden="true"></div><label class="sr-only" for="seek">Позиция воспроизведения</label><input id="seek" type="range" value="0" min="0" max="100" step="0.1" aria-valuetext="0:00"><p id="audio-status" class="player-status" aria-live="polite">Полный трек. Звук включаешь ты.</p>
+            <div class="player-top"><button id="play" class="play" aria-label="Включить SILA"><svg class="play-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 11 7-11 7z"/></svg><svg class="pause-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h4v14H7zm7 0h4v14h-4z"/></svg></button><div class="track-title"><strong>Сила</strong><span>AUGUSTEGO</span></div><span id="time" class="time">0:00 / 2:06</span></div>
+            <div class="waveform" aria-hidden="true"></div><label class="sr-only" for="seek">Позиция воспроизведения</label><input id="seek" type="range" value="0" min="0" max="100" step="0.1" aria-valuetext="0:00"><p id="audio-status" class="player-status" aria-live="polite">Полный трек. Без регистрации.</p>
           </div>
           <audio id="audio" preload="metadata" src="assets/sila.mp3"></audio>
-        </div>
+        </article>
       </div>
     </section>
 
     <section class="film section" id="film" aria-labelledby="film-heading">
-      <div class="section-label reveal"><span>03 / ВИЗУАЛЬНЫЙ МИР</span><span>СМОТРИ В ТЕМНОТЕ</span></div>
-      <div class="film-heading reveal"><h2 id="film-heading">У звука<br>есть тень<span class="red">.</span></h2><p>SILA / ВИЗУАЛЬНАЯ ВЕРСИЯ<br><span>Дым. Хром. Красное на чёрном.</span></p></div>
+      <div class="section-label reveal"><span>Визуальные работы</span><span>Ещё одна сторона музыки</span></div>
+      <div class="film-heading reveal"><h2 id="film-heading">Слушать.<br>Чувствовать. Видеть<span class="red">.</span></h2><p>Дым. Хром. Красное на чёрном.<br><span>Звук продолжается в кадре.</span></p></div>
       <button class="film-poster reveal" id="open-film" aria-haspopup="dialog" aria-controls="film-dialog" aria-label="Смотреть клип AUGUSTEGO — Сила"><img src="assets/visual-archive-v2.jpg" alt="Разрушенный хромовый микрофон в дыму с красными бликами" width="1944" height="810" loading="lazy"><span class="film-poster-top">AUGUSTEGO / ВИЗУАЛЬНЫЙ АРХИВ <span>01</span></span><span class="film-poster-play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 11 7-11 7z"/></svg></span><span class="film-poster-bottom"><span>СИЛА <small>ДЕБЮТНЫЙ СИНГЛ / ВИЗУАЛЬНАЯ ВЕРСИЯ</small></span><span>Смотреть клип ↗</span></span></button>
     </section>
 
+    <section class="short-notes section" aria-labelledby="notes-heading"><div class="section-label reveal"><span>Коротко</span><h2 id="notes-heading">Ближе к AUGUSTEGO</h2></div><div class="notes-grid reveal"><article><h3>Что за звук?</h3><p>Независимый рэп из Петербурга. Плотные строки и тяжёлое звучание.</p></article><article><h3>С чего начать?</h3><p>С «Силы» — дебютного сингла. Полный трек есть в плеере выше.</p></article><article><h3>Где слушать?</h3><p><a href="https://band.link/SISl5" target="_blank" rel="noopener noreferrer">Выбери площадку ↗</a>: Яндекс Музыка, Spotify, Apple Music и другие.</p></article><article><h3>Есть визуальные работы?</h3><p>У «Силы» есть вертикальный клип. Открой его нажатием на постер выше.</p></article><article><h3>Где следить за новым?</h3><p>Во <a href="https://vk.com/augustego" target="_blank" rel="noopener noreferrer">ВКонтакте</a> и на <a href="https://youtube.com/@augustego" target="_blank" rel="noopener noreferrer">YouTube</a>. Ссылки — ниже.</p></article><article><h3>Как насчёт сотрудничества?</h3><p>Напиши артисту <a href="https://vk.com/augustego" target="_blank" rel="noopener noreferrer">во ВКонтакте ↗</a>.</p></article></div></section>
+
     <section class="connect section" id="connect" aria-labelledby="connect-heading">
-      <div class="section-label reveal"><span>04 / НА СВЯЗИ</span><span>SAINT PETERSBURG</span></div>
-      <div class="connect-top reveal"><h2 id="connect-heading">Следи<br>за движением<span class="red">.</span></h2><a class="round-link" href="https://vk.com/augustego" target="_blank" rel="noopener noreferrer" aria-label="Связаться с AUGUSTEGO во ВКонтакте">↗</a></div>
-      <div class="social-links reveal"><a href="https://vk.com/augustego" target="_blank" rel="noopener noreferrer"><span>ВКонтакте</span><span aria-hidden="true">↗</span></a><a href="https://youtube.com/@augustego" target="_blank" rel="noopener noreferrer"><span>YouTube</span><span aria-hidden="true">↗</span></a><a href="https://instagram.com/augustego" target="_blank" rel="noopener noreferrer"><span>Instagram</span><span aria-hidden="true">↗</span></a></div>
-      <div class="contact-bottom reveal"><p>Релизы, новые работы и всё, что дальше.<br>Сотрудничество — в личные сообщения.</p><a class="text-link" href="https://vk.com/augustego" target="_blank" rel="noopener noreferrer">Написать AUGUSTEGO ↗</a></div>
+      <div class="section-label reveal"><span>На связи</span><span>Продолжение следует</span></div>
+      <div class="connect-grid"><div class="connect-top reveal"><h2 id="connect-heading">Услышимся<br>ещё<span class="red">.</span></h2><p>Следи за новыми релизами и работами.<br>Сотрудничество — в личные сообщения.</p><a class="button button-light" href="#release">Слушать музыку <span aria-hidden="true">↗</span></a></div><div class="social-links reveal"><a href="https://vk.com/augustego" target="_blank" rel="noopener noreferrer"><span>ВКонтакте <small>Релизы и связь</small></span><span aria-hidden="true">↗</span></a><a href="https://youtube.com/@augustego" target="_blank" rel="noopener noreferrer"><span>YouTube <small>Визуальные работы</small></span><span aria-hidden="true">↗</span></a><a href="https://instagram.com/augustego" target="_blank" rel="noopener noreferrer"><span>Instagram <small>Другая сторона</small></span><span aria-hidden="true">↗</span></a></div></div>
     </section>
   </main>
   <footer class="footer"><a href="#home" class="wordmark">augustego</a><span>© <span id="year">2026</span> AUGUSTEGO</span><div><a href="privacy.html">Конфиденциальность</a><a href="terms.html">Условия</a><a href="#home" aria-label="Наверх">↑</a></div></footer>
